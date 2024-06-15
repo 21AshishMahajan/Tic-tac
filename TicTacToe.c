@@ -1,16 +1,15 @@
 #include <stdio.h>
-#include <conio.h>  //getch()
-#include <stdlib.h> //system()
+#include <conio.h>  
+#include <stdlib.h> 
 char arr[10] = {'o', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 void showBoard();
 int checkForWin();
 
-// Driver Function
 int main()
 {
     int player = 1;
     int choice, i;
-    char mark; // X or O
+    char mark; 
 
     do
     {
@@ -39,14 +38,14 @@ int main()
         else if (choice == 9 && arr[9] == '9')
             arr[9] = mark;
 
-        else // player==1 ----10
+        else 
         {
             printf("Invalid value\n");
             player--;
             getch();
         }
 
-        i = checkForWin(); //-1,0,1
+        i = checkForWin(); 
         player++;
     } while (i == -1);
 
@@ -64,29 +63,28 @@ int main()
     return 0;
 }
 
-// Function to print the Tic Tac Toe board
+
 void showBoard()
 {
     system("cls");
     printf("\tTIC TAC TOE\n");
     printf("       |       |      \n");
     printf("       |       |      \n");
-    printf("   %c   |   %c   |   %c   \n", arr[1], arr[2], arr[3]);
+    printf("  %c   |   %c  |   %c   \n", arr[1], arr[2], arr[3]);
     printf("-------|-------|-------\n");
     printf("       |       |      \n");
-    printf("   %c   |   %c   |   %c   \n", arr[4], arr[5], arr[6]);
+    printf("  %c   |   %c  |   %c   \n", arr[4], arr[5], arr[6]);
     printf("       |       |      \n");
     printf("-------|-------|-------\n");
     printf("       |       |      \n");
-    printf("   %c   |   %c   |   %c   \n", arr[7], arr[8], arr[9]);
+    printf("  %c   |   %c  |   %c   \n", arr[7], arr[8], arr[9]);
     printf("       |       |      \n");
 }
 
-// A function to check if the has won or not.
+
 int checkForWin()
 {
-    // Win Cases
-    //  For Rows
+  
     if (arr[1] == arr[2] && arr[2] == arr[3])
         return 1;
 
@@ -94,7 +92,7 @@ int checkForWin()
         return 1;
     else if (arr[7] == arr[8] && arr[8] == arr[9])
         return 1;
-    // For Columns
+
     else if (arr[1] == arr[4] && arr[4] == arr[7])
         return 1;
     else if (arr[2] == arr[5] && arr[5] == arr[8])
@@ -103,7 +101,7 @@ int checkForWin()
         return 1;
     else if (arr[3] == arr[6] && arr[6] == arr[9])
         return 1;
-    // Diagonals
+    
     else if (arr[1] == arr[5] && arr[5] == arr[9])
         return 1;
     else if (arr[3] == arr[5] && arr[5] == arr[7])
